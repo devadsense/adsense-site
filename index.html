@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Begun News</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add the CSS from your provided code */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Begun News</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">World</a>
+        <a href="#">Technology</a>
+        <a href="#">Sports</a>
+        <a href="#">Entertainment</a>
+    </nav>
+    
+    <main>
+        <!-- Latest Post Section -->
+        <section class="latest-post">
+            <h2>Latest Post</h2>
+            <div id="latestPost"></div>
+        </section>
 
+        <!-- All News Section -->
+        <section class="news-list" id="newsContainer">
+            <!-- News posts dynamically inserted here -->
+        </section>
+
+        <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-nav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2025 Begun News. All rights reserved.</p>
+    </footer>
+
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Link to External JavaScript File -->
+    <script src="news.js"></script>
+
+    <script>
+        // Fetch posts from localStorage
+        let posts = JSON.parse(localStorage.getItem("newsPosts")) || [];
+        let currentPage = 1;
+        const postsPerPage = 5;
+
+        // Function to display Latest Post on the homepage
+        function displayLatestPost() {
+            let latestPostContainer = document.getElementById("latestPost");
+            if (posts.length > 0) {
+                let latestPost = posts[0]; // Latest post is always the first in the array
+                latestPostContainer.innerHTML = `
+                    <div class="news-post">
+                        <h3><a href="${latestPost.address}">${latestPost.title}</a></h3>
+                        <p>${latestPost.content.substring(0, 100)}...</p>
+                    </div>
+                `;
+            } else {
+                latestPostContainer.innerHTML = "<p>No latest news available.</p>";
+            }
+        }
+
+        // Function to display all news posts
+        function displayPosts() {
+            let container = document.getElementById("newsContainer");
+            container.innerHTML = "";
+            let start = (currentPage - 1) * postsPerPage;
+            let end = start + postsPerPage;
+            let pagePosts = posts.slice(start, end);
+            
+            if (pagePosts.length === 0) {
+                container.innerHTML = "<p>No news available. Add some news first!</p>";
+            } else {
+                pagePosts.forEach(post => {
+                    let postDiv = document.createElement("div");
+                    postDiv.classList.add("news-post");
+                    postDiv.innerHTML = `<h3><a href="${post.address}">${post.title}</a></h3><p>${post.content.substring(0, 100)}...</p><p class='timestamp'>${post.time}</p>`;
+                    container.appendChild(postDiv);
+                });
+            }
+        }
+
+        function nextPage() {
+            if ((currentPage * postsPerPage) < posts.length) {
+                currentPage++;
+                displayPosts();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPosts();
+            }
+        }
+
+        // Initialize
+        displayLatestPost();
+        displayPosts();
+    </script>
+</body>
+</html>
