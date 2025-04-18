@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Begun News</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header><h1>Begun News</h1></header>
+  <header>
+    <h1>Begun News</h1>
+  </header>
+
   <nav>
     <a href="#">Home</a>
     <a href="#">World</a>
@@ -15,24 +18,42 @@
     <a href="#">Sports</a>
     <a href="#">Entertainment</a>
   </nav>
+
   <main>
+    <!-- Latest Post Section -->
     <section class="latest-post">
       <h2>Latest Post</h2>
       <div id="latestPost"></div>
     </section>
+
+    <!-- All News Section -->
     <section class="news-list" id="newsContainer"></section>
+
     <div class="pagination">
       <button id="prevBtn">Previous</button>
       <button id="nextBtn">Next</button>
     </div>
   </main>
+
   <footer>
-    <!-- ... -->
+    <div class="footer-nav">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2025 Begun News. All rights reserved.</p>
   </footer>
 
-  <!-- FontAwesome -->
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!-- अपना JS आख़िर में लोड करो -->
-  <script src="news.js"></script>
+
+  <!-- External JS from js folder -->
+  <script src="js/news.js"></script>
 </body>
 </html>
