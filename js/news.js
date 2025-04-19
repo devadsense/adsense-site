@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Breaking News: Global Climate Summit",
       content: "World leaders gather to discuss urgent climate issues...",
       time: "2025-04-18 10:00 AM",
-      address: "post/post1",
-      image: "post/photo/bolero.jpg"
+      address: "post/post1.html",
+      image: "post/photo/bolero.jpg" // Make sure this image exists!
     },
     {
       title: "Technology Advances: AI in Healthcare",
@@ -36,18 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPage = 1;
   const postsPerPage = 5;
 
-  // अब DOM सेलेक्टर करेँ
-  const latestEl    = document.getElementById("latestPost");
+  // DOM elements
+  const latestEl = document.getElementById("latestPost");
   const containerEl = document.getElementById("newsContainer");
-  const prevBtn     = document.getElementById("prevBtn");
-  const nextBtn     = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
+  // Latest post
   function displayLatestPost() {
     if (posts.length) {
       const p = posts[0];
       latestEl.innerHTML = `
         <div class="news-post">
-          <img src="${p.image}" alt="${p.title}" />
+          <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
           <div class="content">
             <h3><a href="${p.address}">${p.title}</a></h3>
             <p>${p.content.slice(0, 100)}...</p>
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Paginated posts
   function displayPosts() {
     containerEl.innerHTML = "";
     const start = (currentPage - 1) * postsPerPage;
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const div = document.createElement("div");
       div.className = "news-post";
       div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}" />
+        <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
         <div class="content">
           <h3><a href="${p.address}">${p.title}</a></h3>
           <p>${p.content.slice(0, 100)}...</p>
@@ -84,18 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
       containerEl.appendChild(div);
     });
 
-    // disable buttons appropriately
     prevBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage * postsPerPage >= posts.length;
   }
 
-  // बटन इवेंट्स भी DOM-ready होने पर
+  // Button Events
   prevBtn.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
       displayPosts();
     }
   });
+
   nextBtn.addEventListener("click", () => {
     if (currentPage * postsPerPage < posts.length) {
       currentPage++;
@@ -103,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 마지막으로 इनीशियलाईज़
+  // Initialize
   displayLatestPost();
   displayPosts();
 });
