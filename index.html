@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Begun News</title>
+  
+  <!-- ✅ FontAwesome CDN (no CORS issues) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Your Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=2.0" />
+</head>
+<body>
+  <header>
+    <h1>Begun News</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Technology</a>
+    <a href="#">Sports</a>
+    <a href="#">Entertainment</a>
+  </nav>
+
+  <main>
+    <!-- Latest Post Section -->
+    <section class="latest-post">
+      <h2>Latest Post</h2>
+      <div id="latestPost"></div>
+    </section>
+
+    <!-- All News Section -->
+    <section class="news-list" id="newsContainer"></section>
+
+    <div class="pagination">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="About-Us.html">About Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="disclaimer.html">disclaimer</a>
+      <a href="contact-us.html">Contact Us</a>
+      <a href="terms-and-Conditions.html">Terms and Conditions</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2025 Begun News. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ External JS file -->
+  <!-- Cache busting by adding version -->
+
+<script src="js/news.js?v=2.0" defer></script>
+
+</body>
+</html>
