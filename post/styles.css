@@ -34,26 +34,26 @@ header {
 
 /* ✨ Upgraded Navbar */
 nav {
-  background: linear-gradient(90deg, #2c2c2c, #1a1a1a);
+  background: var(--primary);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 nav a {
-  color: #f5f5f5;
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
-  padding: 0.3rem 0.6rem;
+  transition: background 0.3s ease, color 0.3s ease;
+  padding: 0.4rem 0.8rem;
   border-radius: 6px;
 }
 
 nav a:hover {
-  background: var(--primary);
+  background: #e64a19; /* Slightly darker than --primary for hover */
   color: #fff;
 }
 
