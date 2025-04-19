@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="content">
               <h3>${p.title}</h3>
               <p>${p.content.slice(0, 100)}...</p>
-              <p class="timestamp">${p.time}</p>
             </div>
           </a>
         </div>
@@ -81,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="content">
             <h3>${p.title}</h3>
             <p>${p.content.slice(0, 100)}...</p>
-            <p class="timestamp">${p.time}</p>
           </div>
         </a>
       `;
