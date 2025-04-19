@@ -240,3 +240,49 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.article-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.article-content h1 {
+  font-size: 2rem;
+  color: #4e54c8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content p {
+  font-size: 1.05rem;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.article-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-content ul li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.article-content strong {
+  color: #000;
+}
