@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
       content: "Artificial intelligence is revolutionizing the healthcare industry...",
       time: "2025-04-18 09:30 AM",
       address: "post/post2.html",
-      image: "post/images/ai-health.jpg"
+      image: "post/photo/bolero.jpg"
     },
     {
       title: "Sports: Football World Cup Finals",
       content: "The Football World Cup is reaching its final stages...",
       time: "2025-04-17 08:15 PM",
       address: "post/post3.html",
-      image: "post/images/football.jpg"
+      image: "post/photo/bolero.jpg"
     }
   ];
 
