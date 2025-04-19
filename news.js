@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content: "World leaders gather to discuss urgent climate issues...",
       time: "2025-04-18 10:00 AM",
       address: "post/post1",
-      image: "post/images/climate.jpg"
+      image: "post/photo/bolero.jpg"
     },
     {
       title: "Technology Advances: AI in Healthcare",
