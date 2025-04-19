@@ -20,7 +20,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--light);
     color: var(--text);
-    line-height: 0.5;
+    line-height: 1;
     letter-spacing: 0.2px;
   }
   
