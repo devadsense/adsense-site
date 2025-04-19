@@ -8,21 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
       content: "World leaders gather to discuss urgent climate issues...",
       time: "2025-04-18 10:00 AM",
       address: "post/post1.html",
-      image: "post/photo/bolero.webp" // Make sure this image exists!
+      image: "post/photo/bolero.jpg" // Make sure this image exists!
     },
     {
       title: "Technology Advances: AI in Healthcare",
       content: "Artificial intelligence is revolutionizing the healthcare industry...",
       time: "2025-04-18 09:30 AM",
       address: "post/post2.html",
-      image: "post/photo/bolero.webp"
+      image: "post/photo/bolero.jpg"
     },
     {
       title: "Sports: Football World Cup Finals",
       content: "The Football World Cup is reaching its final stages...",
       time: "2025-04-17 08:15 PM",
       address: "post/post3.html",
-      image: "post/photo/bolero.webp"
+      image: "post/photo/bolero.jpg"
     }
   ];
 
