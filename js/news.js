@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
       image: "post/photo/bolero.jpg" // Make sure this image exists!
     },
     {
-      title: "Technology Advances: AI in Healthcare",
-      content: "Artificial intelligence is revolutionizing the healthcare industry...",
+      title: "Alto K10 की बिक्री ने बनाया नया रिकॉर्ड",
+      content: "Maruti Suzuki Alto K10 भारतीय ऑटोमोबाइल बाजार में एक प्रतिष्ठित और लोकप्रिय कार बन चुकी है। ...",
       time: "2025-04-18 09:30 AM",
       address: "post/alto-k10.html",
       image: "post/photo/alto-k10.jpg"
