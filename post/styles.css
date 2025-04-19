@@ -20,7 +20,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--light);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
 }
 
 header {
@@ -28,6 +29,7 @@ header {
   padding: 1rem;
   text-align: center;
   color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -49,6 +51,16 @@ nav a:hover {
   color: var(--secondary);
 }
 
+.featured-image img {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
 main,
 section {
   max-width: 1200px;
@@ -56,28 +68,67 @@ section {
   padding: 1rem;
 }
 
-/* ✅ Featured Image */
-.featured-image {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: center;
+h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 1.75rem;
 }
 
-.featured-image img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
+.article-content {
+  margin-top: 1.5rem;
+  background: white;
+  padding: 2rem;
   border-radius: var(--radius);
-  object-fit: cover;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
-.featured-image img:hover {
-  transform: scale(1.01);
+.article-content p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  color: #1a1a1a;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
-/* ✅ News Posts Section */
+.topic {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+  border-left: 4px solid var(--secondary);
+  padding-left: 1rem;
+}
+
+.inline-card {
+  background: var(--light);
+  border-left: 5px solid var(--primary);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.inline-related-posts {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f0f2ff;
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.inline-related-posts h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.inline-related-posts ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
 .news-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -91,23 +142,18 @@ section {
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-post:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 .news-post img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  display: block;
-  border-bottom: 1px solid #eee;
-  transition: transform 0.3s ease;
-}
-
-.news-post:hover img {
-  transform: scale(1.01);
 }
 
 .news-post .content {
@@ -115,14 +161,18 @@ section {
 }
 
 .news-post h3 {
-  font-size: 1.3rem;
-  color: #111;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
   margin-bottom: 0.5rem;
+  line-height: 1.4;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .news-post h3 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .news-post h3 a:hover {
@@ -130,88 +180,51 @@ section {
 }
 
 .news-post p {
-  color: #333;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  color: #222;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .news-post p.timestamp {
   font-size: 0.85rem;
-  color: #888;
+  color: #666;
+  margin-top: 0.5rem;
 }
 
-/* ✅ Article Content */
-.article-content {
-  background: #ffffff;
+.suggested-content {
+  background: #fffaf2;
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  max-width: 900px;
-  margin: auto;
+  margin-bottom: 2rem;
 }
 
-.article-content h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-  text-align: center;
-}
-
-.article-content h2 {
-  font-size: 1.5rem;
-  margin: 1.5rem 0 1rem;
-  color: #333;
-}
-
-.article-content p {
-  font-size: 1rem;
-  color: #222;
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
-.article-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.article-content ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* ✅ Suggested / Inline Content */
-.inline-card,
-.inline-related-posts,
-.suggested-content {
-  background: #f7f7f7;
-  padding: 1rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 1.5rem 0;
-}
-
-.inline-card {
-  border-left: 5px solid var(--primary);
-}
-
-.inline-related-posts h3,
 .suggested-content h2 {
-  color: var(--primary);
   margin-bottom: 1rem;
+  color: var(--primary);
 }
 
-.inline-related-posts ul,
 .suggested-content ul {
-  margin-left: 1.5rem;
-  list-style: disc;
+  list-style: disc inside;
+  color: #222;
+}
+
+.suggested-content li {
+  margin-bottom: 0.5rem;
 }
 
 footer {
   background: var(--dark);
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-top: 2rem;
+}
+
+.footer-nav,
+.social-icons {
+  margin-bottom: 0.75rem;
 }
 
 .footer-nav a,
@@ -219,15 +232,13 @@ footer {
   color: white;
   margin: 0 0.5rem;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-.footer-nav a:hover,
 .social-icons a:hover {
-  color: var(--secondary);
+  color: var(--accent);
 }
 
-/* ✅ Responsive Design */
 @media (min-width: 768px) {
   .news-list {
     grid-template-columns: repeat(2, 1fr);
@@ -238,4 +249,50 @@ footer {
   .news-list {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+.article-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.article-content h1 {
+  font-size: 2rem;
+  color: #4e54c8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content p {
+  font-size: 1.05rem;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.article-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-content ul li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.article-content strong {
+  color: #000;
 }
