@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content: "Artificial intelligence is revolutionizing the healthcare industry...",
       time: "2025-04-18 09:30 AM",
       address: "post/post2.html",
-      image: "post/photo/bolero.jpg"
+      image: "image/bolero.jpg"
     },
     {
       title: "Sports: Football World Cup Finals",
