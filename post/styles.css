@@ -2,10 +2,12 @@
   --primary: #ff5722;
   --dark: #1e1e1e;
   --light: #fdfdfd;
-  --text: #121212; /* Darker text */
+  --text: #121212;
   --accent: #ffc107;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --radius: 10px;
+  --white: #ffffff;
+  --secondary: #8f94fb;
 }
 
 * {
@@ -25,7 +27,7 @@ body {
 /* Header */
 header {
   background: var(--primary);
-  color: white;
+  color: black; /* Title color changed to black */
   padding: 1.5rem 1rem;
   text-align: center;
   box-shadow: var(--shadow);
