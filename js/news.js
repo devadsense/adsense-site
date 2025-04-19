@@ -1,5 +1,3 @@
-// js/news.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // 1) Default posts for first-time load
   const defaultPosts = [
@@ -48,12 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const p = posts[0];
       latestEl.innerHTML = `
         <div class="news-post">
-          <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
-          <div class="content">
-            <h3><a href="${p.address}">${p.title}</a></h3>
-            <p>${p.content.slice(0, 100)}...</p>
-            <p class="timestamp">${p.time}</p>
-          </div>
+          <a href="${p.address}">
+            <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
+            <div class="content">
+              <h3>${p.title}</h3>
+              <p>${p.content.slice(0, 100)}...</p>
+              <p class="timestamp">${p.time}</p>
+            </div>
+          </a>
         </div>
       `;
     } else {
@@ -76,12 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const div = document.createElement("div");
       div.className = "news-post";
       div.innerHTML = `
-        <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
-        <div class="content">
-          <h3><a href="${p.address}">${p.title}</a></h3>
-          <p>${p.content.slice(0, 100)}...</p>
-          <p class="timestamp">${p.time}</p>
-        </div>
+        <a href="${p.address}">
+          <img src="${p.image}" alt="${p.title}" onerror="this.src='fallback.jpg'" />
+          <div class="content">
+            <h3>${p.title}</h3>
+            <p>${p.content.slice(0, 100)}...</p>
+            <p class="timestamp">${p.time}</p>
+          </div>
+        </a>
       `;
       containerEl.appendChild(div);
     });
