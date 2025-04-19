@@ -77,6 +77,7 @@ main {
   transform: translateY(-4px);
 }
 
+/* Latest Post Image */
 .latest-post img {
   width: 180px;
   object-fit: cover;
