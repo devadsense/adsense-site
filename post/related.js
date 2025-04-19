@@ -3,7 +3,7 @@ const fallbackPosts = [
     title: "Sample Post 1",
     content: "This is sample content for post 1...",
     time: "2025-04-18 10:00 AM",
-    address: "post/post1.html",
+    address: "photo/bolero.html",
     image: "post/images/sample1.jpg"
   },
   {
