@@ -22,18 +22,55 @@
     <a href="#">Entertainment</a>
   </nav>
 
-  <!-- Long Article Content -->
+  <!-- Long Article Content with Topics and Inline Posts -->
   <section class="article-content">
     <h2>Full Article Title</h2>
     <div id="fullArticle">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id imperdiet sapien...</p>
-      <!-- Repeat or generate more paragraphs to simulate 400 lines -->
-      <p>...</p>
-      <p>... (Add up to 400+ lines here) ...</p>
+
+      <!-- Topic 1 -->
+      <article class="topic">
+        <h3>Introduction</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id imperdiet sapien...</p>
+        <p>Praesent nec lorem id turpis tempus tristique a in sapien.</p>
+      </article>
+
+      <!-- Inline Card / Highlight -->
+      <div class="inline-card">
+        <h4>Trending: AI in Journalism</h4>
+        <p>Discover how AI is reshaping the future of media & content generation...</p>
+        <a href="#">Read More</a>
+      </div>
+
+      <!-- Topic 2 -->
+      <article class="topic">
+        <h3>The Main Story</h3>
+        <p>Integer vitae justo nec neque luctus iaculis. In vitae tellus accumsan, tristique ante non, sagittis ipsum.</p>
+        <p>Curabitur suscipit dui a lectus consectetur, ut commodo orci suscipit.</p>
+      </article>
+
+      <!-- Inline Related Posts -->
+      <div class="inline-related-posts">
+        <div class="card">
+          <h4>Opinion: Should We Trust Smart News?</h4>
+          <p>By Jane Doe | 2 min read</p>
+        </div>
+        <div class="card">
+          <h4>Fact Check: Viral Election Posts</h4>
+          <p>By FactBuzz | 3 min read</p>
+        </div>
+      </div>
+
+      <!-- Topic 3 -->
+      <article class="topic">
+        <h3>Conclusion</h3>
+        <p>Donec vitae libero nec risus scelerisque commodo nec sed justo.</p>
+        <p>Sed pulvinar enim vel urna varius feugiat. Thanks for reading!</p>
+      </article>
+
     </div>
   </section>
 
-  <!-- g Class Section with 3 Posts -->
+  <!-- Related News Section -->
   <section class="g">
     <h2>Related News</h2>
     <div class="news-list" id="relatedPosts">
@@ -66,8 +103,6 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <!-- Scripts -->
-
-  <script src="related.js"></script>         <!-- Related news posts script -->
-             <!-- Your main news logic -->
+  <script src="related.js"></script>
 </body>
 </html>
