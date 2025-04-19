@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1) Default posts for first-time load
   const defaultPosts = [
     {
-      title: "Breaking News: Global Climate Summit",
-      content: "World leaders gather to discuss urgent climate issues...",
-      time: "2025-04-18 10:00 AM",
+      title: "Mahindra Bolero New Model 2025",
+      content: "Mahindra Bolero भारतीय बाजार में एक लोकप्रिय SUV है, जिसे दमदार परफॉर्मेंस और किफायती कीमत के लिए जाना जाता है।...",
+      time: "2025-04-19 10:00 AM",
       address: "post/post1.html",
       image: "post/photo/bolero.jpg" // Make sure this image exists!
     },
