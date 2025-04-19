@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Technology Advances: AI in Healthcare",
       content: "Artificial intelligence is revolutionizing the healthcare industry...",
       time: "2025-04-18 09:30 AM",
-      address: "post/post2.html",
-      image: "image/bolero.jpg"
+      address: "post/alto-k10.html",
+      image: "post/photo/alto-k10.jpg"
     },
     {
       title: "Sports: Football World Cup Finals",
