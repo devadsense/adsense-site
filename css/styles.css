@@ -79,7 +79,7 @@ main {
 
 /* Latest Post Image */
 .latest-post img {
-  width: 500px;
+  width: 2000px;
   object-fit: cover;
 }
 
