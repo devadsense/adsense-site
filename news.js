@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Breaking News: Global Climate Summit",
       content: "World leaders gather to discuss urgent climate issues...",
       time: "2025-04-18 10:00 AM",
-      address: "post/post1.html",
+      address: "post/post1",
       image: "post/images/climate.jpg"
     },
     {
