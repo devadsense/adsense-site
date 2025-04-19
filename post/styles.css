@@ -32,7 +32,24 @@ header {
 }
 
 /* ✅ Updated Navbar: uses --dark like index */
+nav {
+  background: var(--dark);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+}
 
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
 
 /* Layout */
 main, section {
