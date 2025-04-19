@@ -84,7 +84,7 @@ main {
 }
 
 .latest-post .content {
-  padding: 100rem;
+  padding: 1rem;
 }
 
 /* News List */
@@ -109,7 +109,7 @@ main {
 
 .news-post img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 }
 
