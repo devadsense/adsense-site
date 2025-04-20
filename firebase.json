@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": ".",              // current folder must contain index.html
+    "public": ".",             
     "ignore": [
       "firebase.json",
       "**/.*",
