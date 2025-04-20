@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Begun News</title>
-  
-  <!-- ✅ FontAwesome CDN (no CORS issues) -->
+
+  <!-- ✅ FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Your Custom Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=2.0" />
+  <!-- ✅ Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=3" />
 </head>
 <body>
+  <!-- ✅ Header -->
   <header>
-    <h1>Begun News</h1>
+    <h1>Gadiz Update </h1>
   </header>
 
+  <!-- ✅ Navigation Menu -->
   <nav>
     <a href="#">Home</a>
     <a href="#">World</a>
@@ -24,27 +26,30 @@
     <a href="#">Entertainment</a>
   </nav>
 
+  <!-- ✅ Main Content -->
   <main>
-    <!-- Latest Post Section -->
+    <!-- ✅ Latest Post -->
     <section class="latest-post">
       <h2>Latest Post</h2>
       <div id="latestPost"></div>
     </section>
 
-    <!-- All News Section -->
+    <!-- ✅ All News Posts -->
     <section class="news-list" id="newsContainer"></section>
 
+    <!-- ✅ Pagination -->
     <div class="pagination">
       <button id="prevBtn">Previous</button>
       <button id="nextBtn">Next</button>
     </div>
   </main>
 
+  <!-- ✅ Footer -->
   <footer>
     <div class="footer-nav">
       <a href="About-Us.html">About Us</a>
       <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="disclaimer.html">disclaimer</a>
+      <a href="disclaimer.html">Disclaimer</a>
       <a href="contact-us.html">Contact Us</a>
       <a href="terms-and-Conditions.html">Terms and Conditions</a>
     </div>
@@ -54,13 +59,10 @@
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
-    <p>&copy; 2025 Begun News. All rights reserved.</p>
+    <p>&copy; 2025 MAX THEME. All rights reserved.</p>
   </footer>
 
-  <!-- ✅ External JS file -->
-  <!-- Cache busting by adding version -->
-
-<script src="js/news.js" defer></script>
-
+  <!-- ✅ External JS File Loaded Correctly -->
+  <script src="js/news.js?v=1.0" defer></script>
 </body>
 </html>

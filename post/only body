@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+ 
+
+    
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Gadiz</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="#">World</a>
+    <a href="#">Technology</a>
+    <a href="#">Sports</a>
+    <a href="#">Entertainment</a>
+  </nav>
+
+ 
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-nav">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2025 Gadiz. All rights reserved.</p>
+  </footer>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

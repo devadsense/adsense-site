@@ -52,7 +52,7 @@ main {
   padding: 0 1rem;
 }
 
-/* Latest Post */
+/* ✅ Latest Post */
 .latest-post {
   margin-bottom: 2rem;
 }
@@ -86,7 +86,7 @@ main {
   padding: 1rem;
 }
 
-/* News List */
+/* ✅ News List */
 .news-list {
   display: grid;
   gap: 1.5rem;
@@ -123,7 +123,36 @@ main {
   color: var(--primary);
 }
 
-/* Pagination */
+/* ✅ Remove underline from all a tags inside news-post */
+.news-post a {
+  text-decoration: none !important;
+  color: var(--text);
+}
+
+/* ✅ Remove underline and style for titles */
+.news-post h3 a {
+  text-decoration: none !important;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.news-post h3 a:hover {
+  color: var(--secondary);
+  text-decoration: none !important;
+}
+
+/* ✅ Remove underline and style for descriptions */
+.news-post .content a {
+  text-decoration: none !important;
+  color: var(--text);
+}
+
+.news-post .content a:hover {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+
+/* ✅ Pagination */
 .pagination {
   display: flex;
   justify-content: center;
@@ -151,7 +180,7 @@ main {
   cursor: default;
 }
 
-/* Footer */
+/* ✅ Footer */
 footer {
   background: var(--dark);
   color: var(--white);
@@ -165,6 +194,17 @@ footer {
   margin-bottom: 1rem;
 }
 
+.footer-nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+
 .social-icons a {
   margin: 0 0.5rem;
   color: var(--white);
@@ -176,7 +216,7 @@ footer {
   color: var(--secondary);
 }
 
-/* Responsive */
+/* ✅ Responsive */
 @media (min-width: 768px) {
   .news-list {
     grid-template-columns: repeat(2, 1fr);
