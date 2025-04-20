@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": ".",
+    "public": ".",              // current folder must contain index.html
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -27,10 +27,20 @@
       }
     ],
     "rewrites": [
-      {
-        "source": "/post/:page",
-        "destination": "/post/:page.html"
-      }
+      { "source": "/post/Aura", "destination": "/post/Aura.html" },
+      { "source": "/post/bolero", "destination": "/post/bolero.html" },
+      { "source": "/post/alto-k10", "destination": "/post/alto-k10.html" },
+      { "source": "/post/tvs", "destination": "/post/tvs.html" },
+      { "source": "/post/Maruti", "destination": "/post/Maruti.html" },
+      { "source": "/post/Toyota", "destination": "/post/Toyota.html" },
+      { "source": "/post/Marazzo", "destination": "/post/Marazzo.html" },
+      { "source": "/post/Suzuki", "destination": "/post/Suzuki.html" },
+      { "source": "/post/TVSFiero125", "destination": "/post/TVSFiero125.html" },
+      { "source": "/post/Rajdoot", "destination": "/post/Rajdoot.html" },
+      { "source": "/post/Wagon", "destination": "/post/Wagon.html" },
+      { "source": "/post/Alto", "destination": "/post/Alto.html" },
+      { "source": "/post/Cervo", "destination": "/post/Cervo.html" },
+      { "source": "/post/SuzukiCervo", "destination": "/post/SuzukiCervo.html" }
     ]
   }
 }
