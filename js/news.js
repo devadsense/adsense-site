@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       time: "2025-04-16 04:30 AM",
       address: "post/Aura",
       image: "post/photo/Aura.jpg"
-    }
+    },
     {
       title: "Mahindra Bolero New Model 2025",
       content: "Mahindra Bolero भारतीय बाजार में एक लोकप्रिय SUV है...",
