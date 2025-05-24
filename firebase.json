@@ -27,6 +27,7 @@
       }
     ],
     "rewrites": [
+      { "source": "/post/fastsite/cars", "destination": "/post/fastsite/cars.html" },
       { "source": "/post/Aura", "destination": "/post/Aura.html" },
       { "source": "/post/bolero", "destination": "/post/bolero.html" },
       { "source": "/post/alto-k10", "destination": "/post/alto-k10.html" },
