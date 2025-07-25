@@ -14,6 +14,11 @@
       { "source": "/post/Alto", "destination": "/post/Alto.html" },
       { "source": "/post/Cervo", "destination": "/post/Cervo.html" },
       { "source": "/post/SuzukiCervo", "destination": "/post/SuzukiCervo.html" }
+
+        { "source": "/d/:linkid", "destination": "/d/player.html" },
+         { "source": "/s/:linkid", "destination": "/s/player.html" },
+         { "source": "/k/:linkid", "destination": "/k/player.html" },
+        
     ]
   }
   
