@@ -1,116 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎥 Watch Video</title>
 
-  <!-- Google Ads Script -->
+  <!-- Google Publisher Tag (GPT) -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-  
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+      // Ad above the player
+      googletag.defineSlot('/23302948850/above_player', [728, 90], 'ad-above-player').addService(googletag.pubads());
+
+      // Ad below the player
+      googletag.defineSlot('/23302948850/below_player', [728, 90], 'ad-below-player').addService(googletag.pubads());
+
+      // Top page ad (after 3 sec)
+      googletag.defineSlot('/23302948850/top_page_delay', [320, 480], 'top-delay-ad').addService(googletag.pubads());
+
+      googletag.enableServices();
+    });
+  </script>
+
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      font-family: sans-serif;
+      background: #111;
       color: #fff;
-      font-family: Arial, sans-serif;
     }
 
-    .ad-container {
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    #video-player {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 10px 0;
+      height: auto;
+      background-color: #000;
     }
 
     .ad-slot {
-      min-width: 320px;
-      min-height: 100px;
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    #top-delay-ad-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      z-index: 9999;
       display: none;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .ad-slot.visible {
-      display: block;
-      opacity: 1;
-    }
-
-    .video-wrapper {
-      width: 100%;
-      max-width: 640px;
-      position: relative;
-      z-index: 2;
-    }
-
-    video {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Ad (delayed by 4 sec) -->
-  <div class="ad-container">
-    <div id="div-gpt-ad-top" class="ad-slot"></div>
+  <!-- Top Delay Ad -->
+  <div id="top-delay-ad-container">
+    <div id='top-delay-ad' class="ad-slot" style="min-height: 480px;"></div>
   </div>
 
-  <!-- Video Player -->
-  <div class="video-wrapper">
-    <video id="videoPlayer" controls autoplay>
+  <div class="container">
+    <!-- Ad above player -->
+    <div id="ad-above-player" class="ad-slot"></div>
+
+    <!-- Video Player -->
+    <video id="video-player" controls poster="https://via.placeholder.com/800x400.png?text=Video+Player">
       <source src="video.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
+      आपका ब्राउज़र video टैग को सपोर्ट नहीं करता.
     </video>
+
+    <!-- Ad below player -->
+    <div id="ad-below-player" class="ad-slot"></div>
   </div>
 
-  <!-- Bottom Ad -->
-  <div class="ad-container">
-    <div id="div-gpt-ad-bottom" class="ad-slot visible"></div>
-  </div>
-
-  <!-- GPT Ad Setup -->
+  <!-- GPT display logic -->
   <script>
-    window.googletag = window.googletag || { cmd: [] };
-
     googletag.cmd.push(function () {
-      // Top Ad Slot
-      googletag.defineSlot('/23302948850/page', [320, 100], 'div-gpt-ad-top')
-        .addService(googletag.pubads());
-
-      // Bottom Ad Slot
-      googletag.defineSlot('/23302948850/page', [320, 100], 'div-gpt-ad-bottom')
-        .addService(googletag.pubads());
-
-      googletag.enableServices();
+      googletag.display('ad-above-player');
+      googletag.display('ad-below-player');
     });
 
-    // Show bottom ad immediately
-    googletag.cmd.push(function () {
-      googletag.display('div-gpt-ad-bottom');
-    });
-
-    // Show top ad after 4 sec delay
+    // Show top delay ad after 3-4 seconds
     setTimeout(function () {
-      const topAd = document.getElementById('div-gpt-ad-top');
-      topAd.classList.add('visible');
+      const topAd = document.getElementById('top-delay-ad-container');
+      topAd.style.display = 'block';
       googletag.cmd.push(function () {
-        googletag.display('div-gpt-ad-top');
+        googletag.display('top-delay-ad');
       });
-    }, 4000);
+    }, Math.floor(Math.random() * 1000) + 3000); // between 3-4 sec
   </script>
-
-  <!-- Player functionality (DO NOT TOUCH) -->
-  <script src="script.js" defer></script>
 
 </body>
 </html>
