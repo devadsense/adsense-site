@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎥 Watch Video | with app</title>
 
-  <!-- Ad Script -->
+  <!-- Google Ad GPT Script -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
-      // Overlay Ad
+      // Out-of-page fullscreen ad
       googletag.defineSlot('/23302948850/page', [320, 480], 'div-gpt-ad-1753715390300-0').addService(googletag.pubads());
 
-      // Other Units
+      // Other ad units
       googletag.defineSlot('/23302948850/unit-1', [[320, 480], [336, 280]], 'div-gpt-ad-1753490694876-0').addService(googletag.pubads());
       googletag.defineSlot('/23302948850/unit-2', ['fluid', [320, 480], [336, 280]], 'div-gpt-ad-1753490878823-0').addService(googletag.pubads());
 
@@ -42,7 +42,6 @@
       --primary: #00bcd4;
       --dark-bg: #121212;
       --light-text: #e0e0e0;
-      --glass: rgba(255, 255, 255, 0.08);
     }
 
     body {
@@ -53,7 +52,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      cursor: pointer;
     }
 
     nav {
@@ -115,25 +113,6 @@
       text-align: center;
     }
 
-    .open-btn {
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #00bcd4, #009688);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
-    }
-
-    p {
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-      margin-top: -20px;
-    }
-
     footer {
       margin-top: auto;
       text-align: center;
@@ -148,44 +127,42 @@
       display: none !important;
     }
 
-    /* Out-of-page Overlay Ad */
+    /* Overlay ad frame */
     #adOverlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 9999;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 99999;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      padding: 20px;
     }
 
     #adOverlay .ad-box {
+      position: relative;
       width: 320px;
       height: 480px;
-      background: #111;
-      position: relative;
+      background: #000;
       border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
 
-    #adOverlay button {
+    #adOverlay .close-btn {
       position: absolute;
-      top: 8px;
-      right: 8px;
+      top: 10px;
+      right: 10px;
       background: #ff4d4d;
-      border: none;
       color: white;
+      border: none;
       border-radius: 50%;
       width: 32px;
       height: 32px;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
       z-index: 10;
     }
@@ -193,20 +170,22 @@
 </head>
 <body>
 
-<!-- 🔺 Overlay Ad on Top -->
+<!-- 🔲 Fullscreen Ad Overlay -->
 <div id="adOverlay">
   <div class="ad-box">
-    <button onclick="closeAdOverlay()">×</button>
+    <button class="close-btn" onclick="closeAdOverlay()">×</button>
     <!-- /23302948850/page -->
-    <div id="div-gpt-ad-1753715390300-0" style="width: 100%; height: 100%;">
+    <div id="div-gpt-ad-1753715390300-0" style="width: 320px; height: 480px;">
       <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753715390300-0'); });
+        googletag.cmd.push(function() {
+          googletag.display('div-gpt-ad-1753715390300-0');
+        });
       </script>
     </div>
   </div>
 </div>
 
-<!-- ✅ Main Page Starts -->
+<!-- ✅ Main Content -->
 <nav>
   <div class="logo">🎥 Watch Video |</div>
   <div class="short-link" id="shortLinkDisplay"></div>
@@ -231,23 +210,27 @@
 
 <section style="padding: 24px; max-width: 900px; margin: auto; font-size: 15px; line-height: 1.6; color: #ccc;">
   <h2 style="color: #00bcd4;">🔹 भारत में 5G तकनीक का तेजी से विस्तार...</h2>
-  <p>भारत में 5G तकनीक के लॉंच के बाद से...</p>
+  <p>भारत में 5G तकनीक के लॉंच के बाद से देशभर में डिजिटल क्रांति की रफ्तार तेज़ हो गई है...</p>
 </section>
 
-<p>⚠️ Tap the player to start countdown, then open in app.</p>
+<p style="text-align:center;">⚠️ Tap the player to start countdown, then open in app.</p>
 
 <footer>
   © 2025 TeraboxLinke | <a href="#" style="color:#00bcd4;text-decoration:none;">Privacy Policy</a>
 </footer>
 
-<!-- Player Script -->
+<!-- Optional: Player Logic -->
 <script src="player.js"></script>
 
-<!-- Close Overlay Function -->
+<!-- Close Overlay Script -->
 <script>
   function closeAdOverlay() {
     document.getElementById("adOverlay").style.display = "none";
+    document.body.style.overflow = "auto"; // Restore scroll
   }
+
+  // Disable scroll while overlay is active
+  document.body.style.overflow = "hidden";
 </script>
 
 </body>
