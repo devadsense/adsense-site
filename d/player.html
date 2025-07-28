@@ -5,34 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎥 Watch Video | with app</title>
 
- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/23302948850/ad-1', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454018551-0').addService(googletag.pubads());
-    googletag.enableServices();
-  });
-</script>
-  
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/23302948850/ad-2', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454125679-0').addService(googletag.pubads());
-    googletag.enableServices();
-  });
-</script>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ESXR8S6B3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Ads -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+      googletag.defineSlot('/23302948850/ad-1', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454018551-0').addService(googletag.pubads());
+      googletag.defineSlot('/23302948850/ad-2', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454125679-0').addService(googletag.pubads());
+      googletag.defineSlot('/23302948850/page', [336, 280], 'div-gpt-ad-1753718471782-0').addService(googletag.pubads());
+      googletag.enableServices();
+    });
+  </script>
 
-  gtag('config', 'G-2ESXR8S6B3');
-</script>
-  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ESXR8S6B3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ESXR8S6B3');
+  </script>
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -43,9 +36,8 @@
   <style>
     :root {
       --primary: #00bcd4;
-      --dark-bg: #121212;
-      --light-text: #e0e0e0;
-      --glass: rgba(255, 255, 255, 0.08);
+      --dark-bg: #e6e6e6;
+      --light-text: #1a1a1a;
     }
 
     body {
@@ -60,13 +52,12 @@
     }
 
     nav {
-      background: rgba(0, 188, 212, 0.1);
-      backdrop-filter: blur(12px);
+      background: #1f1f2e;
       padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--light-text);
+      color: #ffffff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
@@ -85,13 +76,14 @@
     }
 
     .player-box {
-      width: 320px;
+      width: 100%;
+      max-width: 320px;
       height: 200px;
-      border-radius: 20px;
+      border-radius: 10px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 0 30px rgba(0,188,212,0.3);
-      border: 2px solid rgba(0,188,212,0.5);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(0, 0, 0, 0.2);
       background: #000;
     }
 
@@ -108,13 +100,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: var(--light-text);
+      color: #fff;
       background: rgba(0, 0, 0, 0.6);
       padding: 12px 20px;
       border-radius: 10px;
       font-weight: bold;
       font-size: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
       text-align: center;
     }
 
@@ -127,32 +118,68 @@
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
     }
 
-    p {
-      text-align: center;
+    .skip-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    .skip-screen .skip-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      background: #ffffff;
+      color: #000;
+      border-radius: 8px;
+      font-weight: bold;
       font-size: 14px;
-      color: #aaa;
-      margin-top: -20px;
+      border: none;
+      cursor: pointer;
     }
 
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 12px;
-      font-size: 13px;
-      background: rgba(255, 255, 255, 0.02);
-      color: #888;
-      backdrop-filter: blur(6px);
+    .skip-screen #div-gpt-ad-1753718471782-0 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
     }
 
-    #shortLinkDisplay {
-      display: none !important;
+    p { text-align: center; font-size: 14px; color: #555; margin-top: -20px; }
+    footer { margin-top: auto; text-align: center; padding: 12px; font-size: 13px; background: rgba(0, 0, 0, 0.03); color: #444; backdrop-filter: blur(6px); }
+    #shortLinkDisplay { display: none !important; }
+
+    @media (max-width: 768px) { .player-box { height: 180px; } }
+    @media (max-width: 480px) { .player-box { height: 160px; } }
+    #div-gpt-ad-1753454018551-0, #div-gpt-ad-1753454125679-0 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
+
+  <!-- Skip Ad Overlay -->
+  <div class="skip-screen" id="skipScreen">
+    <div id='div-gpt-ad-1753718471782-0' style='min-width: 336px; min-height: 280px;'>
+      <script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753718471782-0'); });</script>
+    </div>
+    <button class="skip-btn" onclick="document.getElementById('skipScreen').style.display='none'">विज्ञापन बंद करें</button>
+  </div>
 
   <!-- Navbar -->
   <nav>
@@ -160,12 +187,10 @@
     <div class="short-link" id="shortLinkDisplay"></div>
   </nav>
 
-<!-- /23302948850/ad-1 -->
-<div id='div-gpt-ad-1753454018551-0' style='min-width: 300px; min-height: 250px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454018551-0'); });
-  </script>
-</div>
+  <!-- Ad Top -->
+  <div id='div-gpt-ad-1753454018551-0' style='min-width: 300px; min-height: 250px;'>
+    <script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454018551-0'); });</script>
+  </div>
 
   <!-- Player UI -->
   <div class="player-container">
@@ -173,40 +198,26 @@
       <img src="img/a1.jpg" alt="Video Thumbnail" />
       <div class="overlay-text" id="overlayText">▶️ Click to Continue</div>
     </div>
-    
-<!-- /23302948850/ad-2 -->
-<div id='div-gpt-ad-1753454125679-0' style='min-width: 300px; min-height: 250px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454125679-0'); });
-  </script>
-</div>
-    
-  <!-- News Article -->
-  <section style="padding: 24px; max-width: 900px; margin: auto; font-size: 15px; line-height: 1.6; color: #ccc;">
-    <h2 style="color: #00bcd4;">🔹 भारत में 5G तकनीक का तेजी से विस्तार, यूजर्स को मिल रहा हाई स्पीड इंटरनेट</h2>
-    <p>
-      भारत में 5G तकनीक के लॉंच के बाद से देशभर में डिजिटल क्रांति की रफ्तार तेज़ हो गई है।
-      टेलीकॉम कंपनियाँ जैसे Jio और Airtel ने देश के कई हिस्सों में 5G नेटवर्क शुरू कर दिया है,
-      जिससे यूजर्स को अब 1Gbps तक की स्पीड मिल रही है।
-    </p>
-    <p>
-      सरकार का लक्ष्य है कि 2025 तक देश के 90% हिस्सों में 5G नेटवर्क उपलब्ध हो।
-      इसके लिए दूरसंचार विभाग (DoT) तेजी से स्पेक्ट्रम और इन्फ्रास्ट्रक्चर तैयार करने पर काम कर रहा है।
-    </p>
-    <p>
-      रिपोर्ट्स के मुताबिक 5G तकनीक से भारतीय अर्थनीति में सालाना 1.2 लाख करोड़ रुपये तक का योगदान होने की आशा है।
-      इससे डिजिटल सेवाओं का दायरा बड़ेगा, और युवाओं को नई तकनीकी नौकरियों के अवसर भी प्राप्त होंगे।
-    </p>
+
+    <!-- Ad Bottom -->
+    <div id='div-gpt-ad-1753454125679-0' style='min-width: 300px; min-height: 250px;'>
+      <script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454125679-0'); });</script>
+    </div>
+  </div>
+
+  <!-- News -->
+  <section style="padding: 24px; max-width: 900px; margin: auto; font-size: 15px; line-height: 1.6; color: #222;">
+    <h2 style="color: #009688;">🔹 भारत में 5G टकनीक का तेजी से विस्तार</h2>
+    <p>भारत में 5G के लॉंच के बाद डिजिटल क्रांति तेज़ हो गई है...</p>
   </section>
 
   <p>⚠️ Tap the player to start countdown, then open in app.</p>
 
   <!-- Footer -->
   <footer>
-    © 2025 TeraboxLinke | <a href="#" style="color:#00bcd4;text-decoration:none;">Privacy Policy</a>
+    © 2025 TeraboxLinke | <a href="#" style="color:#009688;text-decoration:none;">Privacy Policy</a>
   </footer>
 
-  <!-- Player Logic -->
   <script src="player.js"></script>
 </body>
 </html>
