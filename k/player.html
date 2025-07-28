@@ -1,237 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎥 Watch Video | with app</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Page with Ads</title>
 
-  <!-- Google Ad GPT Script -->
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .ad-box {
+      width: 100%;
+      max-width: 336px;
+      min-height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+    }
+
+    .video-player {
+      width: 100%;
+      max-width: 720px;
+      height: 405px;
+      background: #000;
+      margin: 20px 0;
+    }
+
+    #top-ad {
+      display: none;
+    }
+  </style>
+
+  <!-- GPT Ad Library -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};
-    googletag.cmd.push(function() {
-      // Out-of-page fullscreen ad
-      googletag.defineSlot('/23302948850/page', [320, 480], 'div-gpt-ad-1753715390300-0').addService(googletag.pubads());
 
-      // Other ad units
-      googletag.defineSlot('/23302948850/unit-1', [[320, 480], [336, 280]], 'div-gpt-ad-1753490694876-0').addService(googletag.pubads());
-      googletag.defineSlot('/23302948850/unit-2', ['fluid', [320, 480], [336, 280]], 'div-gpt-ad-1753490878823-0').addService(googletag.pubads());
+    googletag.cmd.push(function() {
+      // Top Ad
+      googletag.defineSlot('/23302948850/top_ad_unit', [336, 280], 'top-ad')
+               .addService(googletag.pubads());
+
+      // Bottom Ad
+      googletag.defineSlot('/23302948850/bottom_ad_unit', [336, 280], 'bottom-ad')
+               .addService(googletag.pubads());
 
       googletag.enableServices();
     });
+
+    // Delay the top ad by 3.5 seconds
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.getElementById('top-ad').style.display = 'flex';
+        googletag.cmd.push(function () {
+          googletag.display('top-ad');
+        });
+      }, 3500);
+
+      // Immediately load bottom ad
+      googletag.cmd.push(function () {
+        googletag.display('bottom-ad');
+      });
+    });
   </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ESXR8S6B3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2ESXR8S6B3');
-  </script>
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --primary: #00bcd4;
-      --dark-bg: #121212;
-      --light-text: #e0e0e0;
-    }
-
-    body {
-      margin: 0;
-      background: var(--dark-bg);
-      font-family: 'Inter', sans-serif;
-      color: var(--light-text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    nav {
-      background: rgba(0, 188, 212, 0.1);
-      backdrop-filter: blur(12px);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--light-text);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .logo {
-      font-weight: 600;
-      font-size: 20px;
-    }
-
-    .player-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 16px;
-      gap: 24px;
-    }
-
-    .player-box {
-      width: 320px;
-      height: 200px;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 0 30px rgba(0,188,212,0.3);
-      border: 2px solid rgba(0,188,212,0.5);
-      background: #000;
-    }
-
-    .player-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(8px);
-      transform: scale(1.1);
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--light-text);
-      background: rgba(0, 0, 0, 0.6);
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 12px;
-      font-size: 13px;
-      background: rgba(255, 255, 255, 0.02);
-      color: #888;
-      backdrop-filter: blur(6px);
-    }
-
-    #shortLinkDisplay {
-      display: none !important;
-    }
-
-    /* Overlay ad frame */
-    #adOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 99999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #adOverlay .ad-box {
-      position: relative;
-      width: 320px;
-      height: 480px;
-      background: #000;
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.8);
-      overflow: hidden;
-    }
-
-    #adOverlay .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #ff4d4d;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 10;
-    }
-  </style>
 </head>
+
 <body>
 
-<!-- 🔲 Fullscreen Ad Overlay -->
-<div id="adOverlay">
-  <div class="ad-box">
-    <button class="close-btn" onclick="closeAdOverlay()">×</button>
-    <!-- /23302948850/page -->
-    <div id="div-gpt-ad-1753715390300-0" style="width: 320px; height: 480px;">
-      <script>
-        googletag.cmd.push(function() {
-          googletag.display('div-gpt-ad-1753715390300-0');
-        });
-      </script>
-    </div>
-  </div>
-</div>
+  <!-- Top Ad (hidden initially) -->
+  <div id="top-ad" class="ad-box"></div>
 
-<!-- ✅ Main Content -->
-<nav>
-  <div class="logo">🎥 Watch Video |</div>
-  <div class="short-link" id="shortLinkDisplay"></div>
-</nav>
-
-<!-- /23302948850/unit-1 -->
-<div id='div-gpt-ad-1753490694876-0' style='min-width: 320px; min-height: 280px;'>
-  <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753490694876-0'); }); </script>
-</div>
-
-<div class="player-container">
-  <div class="player-box" id="playerBox">
-    <img src="img/a1.jpg" alt="Video Thumbnail" />
-    <div class="overlay-text" id="overlayText">▶️ Click to Continue</div>
+  <!-- Video Player -->
+  <div class="video-player" id="video-player">
+    <!-- Replace with your actual video player -->
+    <video width="100%" height="100%" controls autoplay>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
-  <!-- /23302948850/unit-2 -->
-  <div id='div-gpt-ad-1753490878823-0' style='min-width: 320px; min-height: 280px;'>
-    <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753490878823-0'); }); </script>
-  </div>
-</div>
-
-<section style="padding: 24px; max-width: 900px; margin: auto; font-size: 15px; line-height: 1.6; color: #ccc;">
-  <h2 style="color: #00bcd4;">🔹 भारत में 5G तकनीक का तेजी से विस्तार...</h2>
-  <p>भारत में 5G तकनीक के लॉंच के बाद से देशभर में डिजिटल क्रांति की रफ्तार तेज़ हो गई है...</p>
-</section>
-
-<p style="text-align:center;">⚠️ Tap the player to start countdown, then open in app.</p>
-
-<footer>
-  © 2025 TeraboxLinke | <a href="#" style="color:#00bcd4;text-decoration:none;">Privacy Policy</a>
-</footer>
-
-<!-- Optional: Player Logic -->
-<script src="player.js"></script>
-
-<!-- Close Overlay Script -->
-<script>
-  function closeAdOverlay() {
-    document.getElementById("adOverlay").style.display = "none";
-    document.body.style.overflow = "auto"; // Restore scroll
-  }
-
-  // Disable scroll while overlay is active
-  document.body.style.overflow = "hidden";
-</script>
+  <!-- Bottom Ad -->
+  <div id="bottom-ad" class="ad-box"></div>
 
 </body>
 </html>
