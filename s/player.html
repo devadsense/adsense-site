@@ -1,212 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎥 Watch Video | with app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎥 Watch Video</title>
 
- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/23302948850/ad-1', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454018551-0').addService(googletag.pubads());
-    googletag.enableServices();
-  });
-</script>
-  
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/23302948850/ad-2', [[300, 250], [320, 480], 'fluid', [336, 280]], 'div-gpt-ad-1753454125679-0').addService(googletag.pubads());
-    googletag.enableServices();
-  });
-</script>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ESXR8S6B3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- GPT Ads Script -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+  <script>
+    window.googletag = window.googletag || { cmd: [] };
+    googletag.cmd.push(function() {
+      // Banner slots
+      googletag.defineSlot('/23297333544/kundan-dev-first-2', ['fluid', [250, 250], [250, 360]], 'div-gpt-ad-1753670364433-0').addService(googletag.pubads());
+      googletag.defineSlot('/23297333544/KUNDAN-dev-first-top', [[250, 250], [250, 360], 'fluid'], 'div-gpt-ad-1753670445056-0').addService(googletag.pubads());
 
-  gtag('config', 'G-2ESXR8S6B3');
-</script>
-  
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+      // Interstitial Ad slot
+      googletag.defineSlot('/23297333544/Interstitial_Ad', [[320, 480], [480, 320]], 'div-gpt-ad-1753770397701-0').addService(googletag.pubads());
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
 
   <style>
-    :root {
-      --primary: #00bcd4;
-      --dark-bg: #121212;
-      --light-text: #e0e0e0;
-      --glass: rgba(255, 255, 255, 0.08);
-    }
-
     body {
-      margin: 0;
-      background: var(--dark-bg);
       font-family: 'Inter', sans-serif;
-      color: var(--light-text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      cursor: pointer;
+      background: #fff;
+      color: #212121;
+      margin: 0; padding: 0;
     }
-
     nav {
-      background: rgba(0, 188, 212, 0.1);
-      backdrop-filter: blur(12px);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--light-text);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .logo {
-      font-weight: 600;
+      background: #003973;
+      padding: 16px 24px;
+      color: white;
       font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
     .player-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 40px 16px;
-      gap: 24px;
+      padding: 30px 16px;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
     }
-
-    .player-box {
-      width: 320px;
-      height: 200px;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 0 30px rgba(0,188,212,0.3);
-      border: 2px solid rgba(0,188,212,0.5);
-      background: #000;
-    }
-
-    .player-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(8px);
-      transform: scale(1.1);
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--light-text);
-      background: rgba(0, 0, 0, 0.6);
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
+    .status {
       font-size: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+      color: #444;
       text-align: center;
+      min-height: 24px;
     }
-
-    .open-btn {
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #00bcd4, #009688);
-      color: white;
+    .watch-btn {
+      padding: 18px 150px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(45deg, #052481, #0a4eff, #000);
+      background-size: 300% 300%;
       border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
+      border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
     }
-
-    p {
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-      margin-top: -20px;
+    .watch-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.5);
     }
-
     footer {
-      margin-top: auto;
+      margin-top: 30px;
       text-align: center;
-      padding: 12px;
+      padding: 14px;
       font-size: 13px;
-      background: rgba(255, 255, 255, 0.02);
       color: #888;
-      backdrop-filter: blur(6px);
+      background: #f0f0f0;
     }
 
-    #shortLinkDisplay {
-      display: none !important;
+    #interstitial-wrapper {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.92);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .ad-box {
+      background: #000;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+      padding: 8px;
+      width: 320px;
+      max-width: 90%;
+      min-height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .close-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      z-index: 10001;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+    #closeTimer {
+      position: fixed;
+      top: 15px;
+      right: 60px;
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+      user-select: none;
+      z-index: 10001;
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .watch-btn {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 18px;
+      }
+      #closeTimer {
+        right: 50px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">🎥 Watch Video |</div>
-    <div class="short-link" id="shortLinkDisplay"></div>
-  </nav>
+  <nav>Watch Video</nav>
 
-<!-- /23302948850/ad-1 -->
-<div id='div-gpt-ad-1753454018551-0' style='min-width: 300px; min-height: 250px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454018551-0'); });
-  </script>
-</div>
+  <!-- Top Banner Ad -->
+  <div id="div-gpt-ad-1753670445056-0" style="min-width: 250px; min-height: 250px;">
+    <script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753670445056-0'); });</script>
+  </div>
 
-  <!-- Player UI -->
+  <!-- Player Section -->
   <div class="player-container">
-    <div class="player-box" id="playerBox">
-      <img src="img/a1.jpg" alt="Video Thumbnail" />
-      <div class="overlay-text" id="overlayText">▶️ Click to Continue</div>
+    <div id="statusText" class="status">🎬 वीडियो देखने के लिए बटन दबाएं</div>
+    <button id="watchBtn" class="watch-btn">🎬 Watch Video</button>
+  </div>
+
+  <!-- Bottom Banner Ad -->
+  <div id="div-gpt-ad-1753670364433-0" style="min-width: 250px; min-height: 250px;">
+    <script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753670364433-0'); });</script>
+  </div>
+
+  <!-- Interstitial Ad Overlay -->
+  <div id="interstitial-wrapper">
+    <div class="ad-box">
+      <div id="div-gpt-ad-1753770397701-0" style="width:100%; height:100%;">
+        <script>
+          googletag.cmd.push(function() {
+            googletag.display('div-gpt-ad-1753770397701-0');
+          });
+        </script>
+      </div>
     </div>
-    
-<!-- /23302948850/ad-2 -->
-<div id='div-gpt-ad-1753454125679-0' style='min-width: 300px; min-height: 250px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1753454125679-0'); });
-  </script>
-</div>
-    
-  <!-- News Article -->
-  <section style="padding: 24px; max-width: 900px; margin: auto; font-size: 15px; line-height: 1.6; color: #ccc;">
-    <h2 style="color: #00bcd4;">🔹 भारत में 5G तकनीक का तेजी से विस्तार, यूजर्स को मिल रहा हाई स्पीड इंटरनेट</h2>
-    <p>
-      भारत में 5G तकनीक के लॉंच के बाद से देशभर में डिजिटल क्रांति की रफ्तार तेज़ हो गई है।
-      टेलीकॉम कंपनियाँ जैसे Jio और Airtel ने देश के कई हिस्सों में 5G नेटवर्क शुरू कर दिया है,
-      जिससे यूजर्स को अब 1Gbps तक की स्पीड मिल रही है।
-    </p>
-    <p>
-      सरकार का लक्ष्य है कि 2025 तक देश के 90% हिस्सों में 5G नेटवर्क उपलब्ध हो।
-      इसके लिए दूरसंचार विभाग (DoT) तेजी से स्पेक्ट्रम और इन्फ्रास्ट्रक्चर तैयार करने पर काम कर रहा है।
-    </p>
-    <p>
-      रिपोर्ट्स के मुताबिक 5G तकनीक से भारतीय अर्थनीति में सालाना 1.2 लाख करोड़ रुपये तक का योगदान होने की आशा है।
-      इससे डिजिटल सेवाओं का दायरा बड़ेगा, और युवाओं को नई तकनीकी नौकरियों के अवसर भी प्राप्त होंगे।
-    </p>
+  </div>
+
+  <!-- Close Button & Timer -->
+  <button class="close-btn" id="closeBtn">×</button>
+  <div id="closeTimer"></div>
+  <section style="background-color: #181818; color: #f5f5f5; padding: 25px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 20px auto;">
+    <h2 style="color: #00ffd5; font-size: 2rem; margin-bottom: 10px;">💰 Finance & Investment Insights (India + Saudi)</h2>
+    <ol style="line-height:1.8; margin-left:18px; text-align:left;">
+      <li>Digital banking in India is revolutionizing financial transactions.</li>
+      <li dir="rtl">التحول الرقمي في السعودية أعاد تشكيل الخدمات البنكية.</li>
+      <li>UPI has made instant payments the new normal.</li>
+      <li dir="rtl">أنظمة المدفوعات السريعة مثل مدى أصبحت شائعة.</li>
+      <li>More people are moving from FDs to mutual funds and SIPs.</li>
+      <li dir="rtl">الاستثمار في الصناديق والأسهم يشهد إقبالاً متزايداً.</li>
+      <li>Discount brokers like Zerodha reduced costs for new investors.</li>
+      <li dir="rtl">شركات الوساطة الرقمية جعلت الاستثمار أرخص وأسهل.</li>
+      <li>SEBI ensures strict rules to protect investors in India.</li>
+      <li dir="rtl">هيئة السوق المالية CMA ترفع مستوى الشفافية.</li>
+      <li>ETFs and Index funds are becoming popular for passive income.</li>
+      <li dir="rtl">صناديق المؤشرات المتداولة (ETFs) تزداد شعبيتها.</li>
+      <li>Robo-advisory services are helping new investors plan portfolios.</li>
+      <li dir="rtl">المستشارون الآليون يقدمون خطط استثمار ذكية.</li>
+      <li>Crypto remains a debated asset class in India.</li>
+      <li dir="rtl">العملات الرقمية ما زالت محل نقاش وتنظيم.</li>
+      <li>Gold is shifting from physical form to digital platforms.</li>
+      <li dir="rtl">الذهب الرقمي وصكوك الذهب تجذب المستثمرين.</li>
+      <li>REITs offer stable rental income through listed real estate.</li>
+      <li dir="rtl">صناديق الريت توفر عوائد ثابتة من العقارات.</li>
+      <li>P2P lending is growing among risk-seeking investors.</li>
+      <li dir="rtl">التمويل الجماعي والـ P2P توسع خيارات المستثمرين.</li>
+      <li>Health and term insurance are now must-have financial products.</li>
+      <li dir="rtl">التأمين الصحي وحماية الحياة أساسيات مالية.</li>
+      <li>NPS provides a retirement corpus with tax benefits.</li>
+      <li dir="rtl">خطط التقاعد NPS تساعد على الادخار طويل الأجل.</li>
+      <li>Credit card debt requires careful management.</li>
+      <li dir="rtl">بطاقات الائتمان تحتاج لإدارة حكيمة لتجنب الديون.</li>
+      <li>Financial literacy is spreading in Tier-2 and Tier-3 cities.</li>
+      <li dir="rtl">التوعية المالية تصل إلى المدن الصغيرة.</li>
+      <li>Smallcase investing allows theme-based portfolios.</li>
+      <li dir="rtl">منصات الاستثمار بالقطاعات تسهّل الفهم.</li>
+      <li>Options trading volume is rising in India.</li>
+      <li dir="rtl">تداول الخيارات يشهد نشاطاً في السعودية أيضاً.</li>
+      <li>Algo-trading APIs are accessible to retail investors.</li>
+      <li dir="rtl">التداول الآلي والخوارزمي أصبح متاحاً للأفراد.</li>
+      <li>Online broker apps bundle research and screeners.</li>
+      <li dir="rtl">تطبيقات الوسطاء تقدم أدوات تحليلية متقدمة.</li>
+      <li>KYC processes have become fully digital.</li>
+      <li dir="rtl">عمليات التعرف على العميل أصبحت رقمية بالكامل.</li>
+      <li>Tax harvesting helps optimize returns.</li>
+      <li dir="rtl">إدارة الضرائب تعزز صافي الأرباح للمستثمرين.</li>
+      <li>Emergency funds are crucial for financial security.</li>
+      <li dir="rtl">وجود صندوق طوارئ ضرورة مالية أساسية.</li>
+      <li>Debt funds are now selected with caution.</li>
+      <li dir="rtl">صناديق الديون تحتاج لتحليل المخاطر جيداً.</li>
+      <li>Hybrid funds balance equity and debt exposure.</li>
+      <li dir="rtl">الصناديق الهجينة توازن بين الأسهم والسندات.</li>
+      <li>Long-term compounding is the key to wealth creation.</li>
+      <li dir="rtl">الاستثمار طويل الأجل يحقق نمو الثروة.</li>
+      <li>Fintech apps integrate budgeting and tracking.</li>
+      <li dir="rtl">تطبيقات التقنية المالية تقدم أدوات إدارة مالية.</li>
+      <li>ESG funds are slowly gaining traction.</li>
+      <li dir="rtl">الاستثمار المستدام ESG يزداد اهتماماً.</li>
+      <li>IPO rushes must be balanced with analysis.</li>
+      <li dir="rtl">الاكتتابات تحتاج دراسة متأنية لتجنب المخاطر.</li>
+      <li>Systematic Transfer Plans reduce volatility.</li>
+      <li dir="rtl">خطط التحويل المنتظم توفر مرونة واستقرار.</li>
+      <li>SWPs are good for regular retirement income.</li>
+      <li dir="rtl">خطط السحب المنتظم مفيدة لدخل التقاعد.</li>
+      <li>Balanced asset allocation reduces drawdowns.</li>
+      <li dir="rtl">التوزيع المتوازن يقلل من تقلبات المحفظة.</li>
+      <li>Quant-based investing is trending in India.</li>
+      <li dir="rtl">الاستثمار الكمي بدأ يكسب ثقة المستثمرين.</li>
+      <li>High-frequency notifications may cause overtrading.</li>
+      <li dir="rtl">الإشعارات المفرطة قد تؤدي لتداول عاطفي.</li>
+      <li>Global ETFs add international diversification.</li>
+      <li dir="rtl">الصناديق العالمية تعطي تنويعاً جغرافياً.</li>
+      <li>Investor grievance portals have improved support.</li>
+      <li dir="rtl">منصات شكاوى المستثمرين أصبحت أكثر فاعلية.</li>
+      <li>T+1 settlement cycle speeds up transactions.</li>
+      <li dir="rtl">نظام التسوية السريعة يرفع كفاءة التداول.</li>
+      <li>Intraday traders are adapting to new margin rules.</li>
+      <li dir="rtl">قواعد الهامش الجديدة تؤثر على المتداولين.</li>
+      <li>Investor psychology is openly discussed now.</li>
+      <li dir="rtl">علم نفس المستثمرين أصبح موضوعاً شائعاً.</li>
+      <li>Backtesting is key for strategy validation.</li>
+      <li dir="rtl">اختبار الاستراتيجيات ضروري قبل التنفيذ.</li>
+      <li>Tax changes impact debt fund preferences.</li>
+      <li dir="rtl">التغييرات الضريبية تؤثر على اختيار الصناديق.</li>
+      <li>Family offices are managing large portfolios professionally.</li>
+      <li dir="rtl">مكاتب العائلات تدير ثروات ضخمة باحترافية.</li>
+      <li>FIRE (Financial Independence) trend is growing.</li>
+      <li dir="rtl">حركة الاستقلال المالي تنتشر بين الشباب.</li>
+      <li>Patience and diversification beat timing strategies.</li>
+      <li dir="rtl">الصبر والتنويع يتفوقان على محاولات توقيت السوق.</li>
+      <li>Investing according to goals is the ultimate rule.</li>
+      <li dir="rtl">القاعدة الأهم: استثمر وفق أهدافك وقدرتك على المخاطرة.</li>
+    </ol>
   </section>
-
-  <p>⚠️ Tap the player to start countdown, then open in app.</p>
-
-  <!-- Footer -->
   <footer>
-    © 2025 TeraboxLinke | <a href="#" style="color:#00bcd4;text-decoration:none;">Privacy Policy</a>
+    © 2025 TeraboxLinke | <a href="#" style="color: #003973;">Privacy Policy</a>
   </footer>
 
-  <!-- Player Logic -->
-  <script src="player.js"></script>
+  <script>
+    const watchBtn = document.getElementById('watchBtn');
+    const statusText = document.getElementById('statusText');
+    const interstitial = document.getElementById('interstitial-wrapper');
+    const closeBtn = document.getElementById('closeBtn');
+    const closeTimer = document.getElementById('closeTimer');
+
+    function getVideoId() {
+      const path = window.location.pathname;
+      const m = path.match(/\/k\/([^/?#]+)/i);
+      if (m && m[1]) return m[1];
+      const segs = path.split('/').filter(Boolean);
+      return segs.length ? segs[segs.length - 1] : 'demo123';
+    }
+
+    watchBtn.addEventListener('click', () => {
+      // Show interstitial and hide close button & timer initially
+      interstitial.style.display = 'flex';
+      closeBtn.style.display = 'none';
+      closeTimer.style.display = 'block';
+
+      let countdown = 5; // 5 seconds timer
+      closeTimer.textContent = `${countdown} s`;
+      statusText.textContent = `⏳ कृपया इंतजार करें... ${countdown} सेकंड में बंद करें`;
+
+      // Start countdown
+      const timer = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+          closeTimer.textContent = `${countdown} s`;
+          statusText.textContent = `⏳ कृपया इंतजार करें... ${countdown} सेकंड में बंद करें`;
+        } else {
+          clearInterval(timer);
+          closeTimer.style.display = 'none';
+          closeBtn.style.display = 'flex';
+          statusText.textContent = '👉 Ad देख कर continue करें';
+        }
+      }, 1000);
+    });
+
+    closeBtn.addEventListener('click', () => {
+      interstitial.style.display = 'none';
+      closeBtn.style.display = 'none';
+      closeTimer.style.display = 'none';
+      statusText.textContent = '✅ वीडियो खुल रहा है...';
+      const videoID = getVideoId();
+      window.location.href = `https://www.wozov.net/s2/${videoID}`;
+    });
+  </script>
+
 </body>
 </html>
