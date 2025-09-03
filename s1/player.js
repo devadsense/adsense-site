@@ -5,14 +5,14 @@ import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.23.
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyD3Xkm1DxO-swh1fBQ5CXWt77pmSP320c8",
-  authDomain: "link-shortner-6a2c1.firebaseapp.com",
-  databaseURL: "https://link-shortner-6a2c1-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "link-shortner-6a2c1",
-  storageBucket: "link-shortner-6a2c1.appspot.com",
-  messagingSenderId: "702481354050",
-  appId: "1:702481354050:web:797dce2f2a1302f2590cdb",
-  measurementId: "G-Y2FXRH6QVY"
+  apiKey: "AIzaSyCSPNBeymwFh_r1pozKcsqAZgtrkRBQGzg",
+  authDomain: "mix-setup.firebaseapp.com",
+  databaseURL: "https://mix-setup-default-rtdb.firebaseio.com",
+  projectId: "mix-setup",
+  storageBucket: "mix-setup.firebasestorage.app",
+  messagingSenderId: "534677715300",
+  appId: "1:534677715300:web:24d809fce39c458c326271",
+  measurementId: "G-VBEYFDZDHC"
 };
 
 const app = initializeApp(firebaseConfig);
