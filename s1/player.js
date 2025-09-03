@@ -88,7 +88,7 @@ if (!shortID) {
   // Player Click Handler
   playerBox.addEventListener('click', () => {
     if (state === 0) {
-      window.open("https://obqj2.com/4/9527084", "_blank");
+      window.open("https://obqj2.com/4/9356126", "_blank");
       state = 1;
     } else if (state === 1) {
       startCountdown();
