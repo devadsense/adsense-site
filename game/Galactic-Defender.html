@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गैलेक्टिक डिफेंडर</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="outer-frame"> 
+        <div class="game-container">
+            <h1 class="neon-text">गैलेक्टिक डिफेंडर 👾</h1>
+            
+            <div class="info-bar top-bar">
+                <p>SCORE: <span id="score">0</span></p>
+                <p>LIFE: <span id="lives">3</span></p>
+            </div>
+
+            <canvas id="gameCanvas"></canvas> 
+
+            <div class="info-bar bottom-bar">
+                <button id="startButton">प्रारंभ करें</button>
+                <p class="controls-text">CONTROLS: A/D/←/→ Move, SPACE Shoot</p>
+            </div>
+            
+            <div id="game-message" class="hidden">गेम ओवर!</div>
+            
+            <div class="touch-controls">
+                <button id="leftButton" class="touch-btn">◀</button>
+                <button id="shootButton" class="touch-btn">FIRE</button>
+                <button id="rightButton" class="touch-btn">▶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
