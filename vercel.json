@@ -17,7 +17,7 @@
 { "source": "/game/Puzzle", "destination": "/game/Puzzle.html" },
         { "source": "/d/:linkid", "destination": "/d/player.html" },
          { "source": "/s/:linkid", "destination": "/s/player.html" },
-         { "source": "/s1/:linkid", "destination": "/s1/player.html" }
+         { "source": "/v/:linkid", "destination": "/v/player.html" }
         
     ]
   }
