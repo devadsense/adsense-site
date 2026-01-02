@@ -531,8 +531,8 @@
           clearInterval(initialAdIntervalId);
         }
 
-        // Start the countdown after ad is closed
-        startCountdown();
+        // Directly open Terabox link after ad is closed
+        window.location.href = originalLink;
       }
 
       function startCountdown() {
@@ -607,5 +607,4 @@
     });
   </script>
 </body>
-</html>
 </html>
