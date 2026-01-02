@@ -40,60 +40,9 @@
   gtag('config', 'G-0NYWNPQQKW');
 </script>
 
-  <!-- ✅ Define all GAM slots (3 banner + 1 anchor) - Optimized for Mobile -->
+  <!-- ✅ Define GAM slots (Anchor + Initial Popup) -->
   <script>
     googletag.cmd.push(function() {
-      // Top banner - Mobile optimized sizes
-      googletag.defineSlot(
-        '/23321131232/ad-unit',
-        [
-          [320, 50],      // Mobile Banner (most common)
-          [300, 250],     // Medium Rectangle (very common)
-          [336, 280],     // Large Rectangle
-          [320, 100],     // Large Mobile Banner
-          [250, 250],     // Square
-          [250, 360],     // Mobile Skyscraper
-          [320, 480],     // Mobile Skyscraper Large
-          [728, 90],      // Leaderboard (for larger screens)
-          'fluid'         // Responsive
-        ],
-        'div-gpt-ad-1764822614016-0'
-      ).addService(googletag.pubads());
-
-      // Middle banner - Mobile optimized sizes
-      googletag.defineSlot(
-        '/23321131232/ad-unit',
-        [
-          [300, 250],     // Medium Rectangle (very common)
-          [336, 280],     // Large Rectangle
-          [320, 50],      // Mobile Banner
-          [320, 100],     // Large Mobile Banner
-          [250, 250],     // Square
-          [250, 360],     // Mobile Skyscraper
-          [320, 480],     // Mobile Skyscraper Large
-          [728, 90],      // Leaderboard
-          'fluid'         // Responsive
-        ],
-        'div-gpt-ad-1764822699613-0'
-      ).addService(googletag.pubads());
-
-      // Bottom banner - Mobile optimized sizes
-      googletag.defineSlot(
-        '/23321131232/ad-unit',
-        [
-          [300, 250],     // Medium Rectangle (very common)
-          [336, 280],     // Large Rectangle
-          [320, 50],      // Mobile Banner
-          [320, 100],     // Large Mobile Banner
-          [250, 250],     // Square
-          [250, 360],     // Mobile Skyscraper
-          [320, 480],     // Mobile Skyscraper Large
-          [728, 90],      // Leaderboard
-          'fluid'         // Responsive
-        ],
-        'div-gpt-ad-1764822726502-0'
-      ).addService(googletag.pubads());
-
       // Anchor ad - Mobile optimized
       googletag.defineSlot(
         '/23321131232/ancere_ad',
@@ -105,6 +54,13 @@
           'fluid'         // Responsive
         ],
         'div-gpt-ad-1764822805786-0'
+      ).addService(googletag.pubads());
+
+      // Initial Popup Ad
+      googletag.defineSlot(
+        '/23321131232/ad-unit',
+        [[250, 360], [320, 480], 'fluid', [250, 250]],
+        'div-gpt-ad-1767325522500-0'
       ).addService(googletag.pubads());
 
       googletag.pubads().enableSingleRequest();
@@ -228,10 +184,8 @@
     }
 
     /* ✅ Ad containers - Fully Flexible */
-    #div-gpt-ad-1764822614016-0,
-    #div-gpt-ad-1764822699613-0,
-    #div-gpt-ad-1764822726502-0,
-    #div-gpt-ad-1764822805786-0 {
+    #div-gpt-ad-1764822805786-0,
+    #div-gpt-ad-1767325522500-0 {
       width: auto !important;
       min-width: auto !important;
       max-width: 100% !important;
@@ -242,10 +196,8 @@
     }
 
     /* Google AdSense iframe ko flexible rakho */
-    #div-gpt-ad-1764822614016-0 iframe,
-    #div-gpt-ad-1764822699613-0 iframe,
-    #div-gpt-ad-1764822726502-0 iframe,
-    #div-gpt-ad-1764822805786-0 iframe {
+    #div-gpt-ad-1764822805786-0 iframe,
+    #div-gpt-ad-1767325522500-0 iframe {
       max-width: 100% !important;
       height: auto !important;
     }
@@ -318,34 +270,134 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    /* 🔥 Initial Ad Popup Styles */
+    .initial-ad-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      animation: fadeInOverlay 0.3s ease;
+    }
+
+    @keyframes fadeInOverlay {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .initial-ad-modal {
+      width: 90%;
+      max-width: 400px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 
+                  0 0 0 3px rgba(13, 71, 161, 0.3),
+                  inset 0 1px 0 rgba(255,255,255,0.8);
+      text-align: center;
+      border: 2px solid #0D47A1;
+      animation: slideUpModal 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes slideUpModal {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .initial-ad-header {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+      color: white;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 18px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
+    }
+
+    .initial-ad-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: auto;
+      height: auto;
+      background: rgba(13, 71, 161, 0.05);
+      border-radius: 12px;
+      border: 2px dashed rgba(13, 71, 161, 0.2);
+      padding: 8px;
+    }
+
+    .initial-ad-wrapper > div {
+      width: auto !important;
+      min-width: auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    #initialAdTimer {
+      margin-top: 16px;
+      font-weight: 600;
+      color: #0D47A1;
+      font-size: 16px;
+      padding: 10px 20px;
+      background: rgba(13, 71, 161, 0.1);
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    #initialSkipBtn {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      margin-top: 16px;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(13, 71, 161, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    #initialSkipBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13, 71, 161, 0.6);
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔝 TOP BANNER AD -->
-  <center>
-    <div class="code-block-label">Advertiser</div>
-    <!-- /23321131232/ad-unit (top) -->
-    <div id='div-gpt-ad-1764822614016-0'>
-      <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1764822614016-0'); });
-      </script>
-    </div>
-  </center>
-
   <nav>شاهد الفيديو</nav>
 
-  <!-- 🟡 MIDDLE BANNER AD -->
-  <center>
-    <div class="code-block-label">Advertiser</div>
-    <!-- /23321131232/ad-unit (middle) -->
-    <div id='div-gpt-ad-1764822699613-0'>
-      <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1764822699613-0'); });
-      </script>
+  <!-- 🔥 INITIAL POPUP OVERLAY -->
+  <div class="initial-ad-overlay" id="initialAdOverlay">
+    <div class="initial-ad-modal">
+      <div class="initial-ad-header">✨ إعلان مميز ✨</div>
+
+      <div class="initial-ad-wrapper">
+        <div id='div-gpt-ad-1767325522500-0'>
+          <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1767325522500-0'); });
+          </script>
+        </div>
+      </div>
+
+      <div id="initialAdTimer">⏳ الرجاء الانتظار 5 ثواني...</div>
+      <button id="initialSkipBtn">تخطي الإعلان →</button>
     </div>
-  </center>
+  </div>
 
   <div class="player-container">
     <div class="player-box" id="playerBox">
@@ -353,17 +405,6 @@
       <div class="overlay-text" id="overlayText">▶️ انقر للمتابعة</div>
     </div>
   </div>
-
-  <!-- 🔻 BOTTOM BANNER AD -->
-  <center>
-    <div class="code-block-label">Advertiser</div>
-    <!-- /23321131232/ad-unit (bottom) -->
-    <div id='div-gpt-ad-1764822726502-0'>
-      <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1764822726502-0'); });
-      </script>
-    </div>
-  </center>
 
   <!-- CONTENT SECTION - Arabic Content -->
   <section style="background-color: #181818; color: #f5f5f5; padding: 25px; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); font-family: 'Segoe UI', sans-serif;">
@@ -456,68 +497,66 @@
       const playerBox = document.getElementById('playerBox');
       const overlay = document.getElementById('overlayText');
 
-      let state = 0;                 // 0 = idle, 1 = countdown, 2 = ready
-      const countdownStart = 6;
-      let countdown = countdownStart;
+      const initialAdOverlay = document.getElementById('initialAdOverlay');
+      const initialAdTimer = document.getElementById('initialAdTimer');
+      const initialSkipBtn = document.getElementById('initialSkipBtn');
+      const anchorAd = document.getElementById('anchorAd');
+
+      let countdown = 5;
       let intervalId = null;
+      let adShown = false;
 
-      function refreshAds() {
-        if (window.googletag && googletag.pubads) {
-          googletag.cmd.push(() => googletag.pubads().refresh());
+      function startInitialAd() {
+        if (adShown) return; // sirf ek baar
+        adShown = true;
+
+        // Remove anchor ad
+        if (anchorAd) {
+          anchorAd.style.display = 'none';
         }
-      }
 
-      function startCountdown() {
-        state = 1;
-        countdown = countdownStart;
+        // Show initial popup
+        initialAdOverlay.style.display = 'flex';
+        overlay.textContent = '⏳ جاري تحميل الإعلان...';
 
-        // Circular loader + number
-        overlay.innerHTML = `
-          <div class="loader-wrapper">
-            <div class="spinner"></div>
-            <div class="countdown-text" id="countdownNumber">${countdown}</div>
-          </div>
-          <div style="margin-top:8px;font-size:13px;">⏳ الرجاء الانتظار...</div>
-        `;
+        countdown = 5;
+        initialAdTimer.style.display = 'block';
+        initialSkipBtn.style.display = 'none';
+        initialAdTimer.textContent = `⏳ الرجاء الانتظار ${countdown} ثواني...`;
 
-        const getNumberEl = () => document.getElementById("countdownNumber");
+        // Display initial ad
+        if (window.googletag) {
+          googletag.cmd.push(function() {
+            googletag.display('div-gpt-ad-1767325522500-0');
+          });
+        }
 
         intervalId = setInterval(() => {
           countdown--;
-          const numEl = getNumberEl();
-          if (numEl) numEl.textContent = countdown;
-
-          if (countdown <= 0) {
+          if (countdown > 0) {
+            initialAdTimer.textContent = `⏳ الرجاء الانتظار ${countdown} ثواني...`;
+          } else {
             clearInterval(intervalId);
-            overlay.innerHTML = `<button id="openBtn" class="open-btn">✅ افتح في التطبيق</button>`;
-            document.getElementById("openBtn").addEventListener("click", () => {
-              window.location.href = originalLink;
-            });
-            state = 2;
-            refreshAds();
+            initialAdTimer.style.display = 'none';
+            initialSkipBtn.style.display = 'inline-block';
           }
         }, 1000);
       }
 
-      // 🔘 Click to Continue -> start 6 sec countdown with circle
+      // Click on player box -> show initial ad popup
       playerBox.addEventListener('click', () => {
-        if (state === 0) {
-          startCountdown();
-        }
+        startInitialAd();
       });
 
-      // Browser back/forward se aaye to ads refresh
-      window.addEventListener("pageshow", (e) => {
-        if (e.persisted || (window.performance && window.performance.navigation && window.performance.navigation.type === 2)) {
-          refreshAds();
-        }
+      // Skip button -> redirect to original Terabox link
+      initialSkipBtn.addEventListener('click', () => {
+        window.location.href = originalLink;
       });
 
-      // Anchor ad skip button
+      // Anchor ad skip button (manual skip)
       const anchorSkipBtn = document.getElementById('anchorSkipBtn');
       if (anchorSkipBtn) {
         anchorSkipBtn.addEventListener('click', () => {
-          const anchorAd = document.getElementById('anchorAd');
           if (anchorAd) anchorAd.style.display = 'none';
         });
       }
