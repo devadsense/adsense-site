@@ -436,6 +436,171 @@
       <button class="initial-ad-close" id="initialAdClose">Close</button>
     </div>
   </div>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+<script>
+window.googletag = window.googletag || { cmd: [] };
+
+
+let rewardedSlot;
+let rewardPayload;
+let skipTimer;
+let skipButton;
+let timerDisplay;
+let lastInterstitialTime = 0;
+
+
+// Function to show interstitial ads with frequency control
+function triggerInterstitialAd() {
+const now = Date.now();
+// Only show interstitial if at least 20 seconds have passed since the last one
+if (now - lastInterstitialTime > 20000) { // 20 seconds minimum between ads
+if (typeof showInterstitialAd === 'function') {
+showInterstitialAd();
+lastInterstitialTime = now;
+}
+}
+}
+
+
+function createRewardUI() {
+// Create skip button
+skipButton = document.createElement('button');
+skipButton.className = 'skip-button';
+skipButton.style.display = 'none';
+skipButton.textContent = 'Skip Ad';
+document.body.appendChild(skipButton);
+
+
+// Create timer display
+timerDisplay = document.createElement('div');
+timerDisplay.className = 'skip-timer';
+timerDisplay.style.display = 'none';
+document.body.appendChild(timerDisplay);
+
+
+
+
+}
+
+
+function showSkipButton(seconds) {
+skipButton.style.display = 'block';
+timerDisplay.style.display = 'block';
+let timeLeft = seconds;
+
+
+skipTimer = setInterval(() => {
+timeLeft--;
+timerDisplay.textContent = `Skip in ${timeLeft}s`;
+if (timeLeft <= 0) {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+}
+}, 1000);
+}
+
+
+
+
+googletag.cmd.push(() => {
+createRewardUI();
+rewardedSlot = googletag.defineOutOfPageSlot(
+"/23321131232/rewards",
+googletag.enums.OutOfPageFormat.REWARDED,
+document.getElementById('rewarded-ad-container')
+);
+
+
+if (rewardedSlot) {
+rewardedSlot.addService(googletag.pubads());
+
+
+googletag.pubads().addEventListener("rewardedSlotReady", (event) => {
+showSkipButton(5); // Show skip button after 5 seconds
+event.makeRewardedVisible();
+});
+
+
+googletag.pubads().addEventListener("rewardedSlotClosed", () => {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+dismissRewardedAd();
+});
+
+
+googletag.pubads().addEventListener("rewardedSlotGranted", (event) => {
+rewardPayload = event.payload;
+});
+
+
+googletag.pubads().addEventListener("slotRenderEnded", (event) => {
+if (event.slot === rewardedSlot && event.isEmpty) {
+}
+});
+
+
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+googletag.display(rewardedSlot);
+} else {
+}
+});
+
+
+function dismissRewardedAd() {
+if (rewardPayload) {
+}
+if (rewardedSlot) {
+googletag.destroySlots([rewardedSlot]);
+}
+}
+
+
+// Add skip button functionality
+if (skipButton) {
+skipButton.addEventListener('click', () => {
+clearInterval(skipTimer);
+skipButton.style.display = 'none';
+timerDisplay.style.display = 'none';
+dismissRewardedAd();
+});
+}
+
+
+// Add event listeners to game cards to trigger interstitial ads
+document.addEventListener('DOMContentLoaded', function () {
+// Add click event listeners to all game cards
+const gameLinks = document.querySelectorAll('.game-card a');
+let clickCount = 0;
+
+
+gameLinks.forEach(link => {
+link.addEventListener('click', function (e) {
+clickCount++;
+// Show interstitial ad every 2-3 clicks
+if (clickCount % 3 === 0) {
+triggerInterstitialAd();
+}
+});
+});
+
+
+// Add scroll event to potentially trigger ads
+let scrollTimeout;
+window.addEventListener('scroll', function () {
+clearTimeout(scrollTimeout);
+scrollTimeout = setTimeout(function () {
+// Random chance to show ad on scroll stop (20% chance)
+if (Math.random() < 0.2) {
+triggerInterstitialAd();
+}
+}, 1000);
+});
+});
+</script>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
